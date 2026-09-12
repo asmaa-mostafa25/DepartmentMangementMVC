@@ -1,0 +1,56 @@
+﻿@using DepartmentMangementMVC.ViewModel
+@model List<DepartmentViewModel>
+<h1>Departments</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Manager</th>
+            <th>Employee Count</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>@department.DepartmentId</td>
+                <td>@department.DepartmentName</td>
+                <td>@department.ManagerName</td>
+                <td>@department.EmployeeCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+
+<h3>ViewData</h3>
+
+<p>Number: @((int)ViewData["Number"])</p>
+
+<p>Message: @((string)ViewData["Message"])</p>
+
+@{
+    var names = (List<string>)ViewData["Names"];
+}
+
+<h4>Names:</h4>
+
+@foreach (var name in names)
+{
+    <p>@name</p>
+}
+<hr />
+
+<h3>ViewBag</h3>
+
+<p>Number: @ViewBag.Number</p>
+
+<p>Message: @ViewBag.Message</p>
+
+@foreach (var name in ViewBag.Names)
+{
+    <p>@name</p>
+}
